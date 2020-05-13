@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ toy.description }}</td>
                         <td>
-                            <form action="{% url 'delete' item.id %}" method="POST">
+                            <form method="POST" action="{% url 'delete' toy.id %}">
                                 {% csrf_token %}
                                 <input type="submit" value="X">
                             </form>
