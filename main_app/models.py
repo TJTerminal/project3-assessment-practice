@@ -1,3 +1,5 @@
 from django.db import models
 
 # Create your models here.
+class Toy(models.Model):
+    description = models.CharField(max_length=100)
