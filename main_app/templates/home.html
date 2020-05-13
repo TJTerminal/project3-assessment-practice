@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Toy List</h1>
+    <div>
+        {% if toy_list|length == 0 %}
+        <h3>No Toys Exist</h3>
+        {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td>Delete</td>
+                </tr>
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+</body>
+</html>
