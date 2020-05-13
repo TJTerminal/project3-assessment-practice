@@ -13,6 +13,7 @@
     <div>
         {% if toy_list|length == 0 %}
         <h3>No Toys Exist</h3>
+        <hr>
         {% else %}
         <table>
             <thead>
@@ -29,6 +30,7 @@
             </tbody>
         </table>
         {% endif %}
+        <input type="submit" class="btn" value="Add Toy">
     </div>
 
 </body>
