@@ -11,27 +11,35 @@
 <body>
     <h1>Toy List</h1>
     <div>
-        {% if toy_list|length == 0 %}
-        <h3>No Toys Exist</h3>
-        <hr>
-        {% else %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Description</td>
-                    <td>Delete</td>
-                </tr>
-            </tbody>
-        </table>
-        {% endif %}
-        <input type="submit" class="btn" value="Add Toy">
+        {% if toys.count %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for toy in toys %}
+                    <tr>
+                        <td>{{ toy.description }}</td>
+                        <td>
+                            <form action="{% url 'delete' item.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="submit" value="X">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <h3>No Toys Exist</h3>
+                <hr>
+            {% endif %}
     </div>
-
+    <a href="{% url 'add' %}">
+        <input type="submit" class="btn" value="Add Toy">
+    </a>
 </body>
 </html>
